@@ -37,7 +37,7 @@
 </head>
 <body class="bg-bg text-text font-body overflow-x-hidden antialiased selection:bg-gold selection:text-bg">
   
-  <!-- Custom Cursor -->
+  <!-- Custom Cursor (Desktop Only) -->
   <div class="cursor-dot hidden md:block"></div>
   <div class="cursor-outline hidden md:block"></div>
 
@@ -51,74 +51,111 @@
 
   <div class="grain"></div>
 
-  <!-- Header -->
-  <header class="fixed top-0 left-0 w-full z-40 p-6 md:p-10 flex justify-between items-center mix-blend-difference">
-    <div class="font-display text-2xl tracking-widest text-text">SK</div>
-    <nav class="hidden md:flex gap-8 font-display tracking-widest text-lg">
+  <!-- Header Navigation -->
+  <header id="main-header" class="fixed top-0 left-0 w-full z-40 px-6 py-4 md:px-12 md:py-6 flex justify-between items-center bg-bg/85 backdrop-blur-md border-b border-white/5 transition-all duration-300">
+    <a href="#hero" class="font-display text-2xl md:text-3xl tracking-widest text-text hover:text-gold transition-colors duration-300">SK</a>
+    
+    <!-- Desktop Nav -->
+    <nav class="hidden md:flex gap-8 font-display tracking-widest text-lg items-center">
       <a href="#about" class="hover:text-gold transition-colors duration-300">About</a>
       <a href="#looks" class="hover:text-gold transition-colors duration-300">Portfolios</a>
       <a href="#reel" class="hover:text-gold transition-colors duration-300">Reel</a>
       <a href="#contact" class="hover:text-gold transition-colors duration-300">Contact</a>
+      <a href="#contact" class="ml-4 px-4 py-1.5 border border-gold/60 text-gold text-sm tracking-widest hover:bg-gold hover:text-bg transition-all duration-300 rounded-sm">INQUIRE</a>
     </nav>
-    <a href="#contact" class="md:hidden font-display tracking-widest text-lg border-b border-gold text-gold">Contact</a>
+
+    <!-- Mobile Hamburger Button -->
+    <button id="mobile-menu-btn" class="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5 focus:outline-none z-50 text-gold" aria-label="Toggle navigation menu">
+      <span class="hamburger-line w-6 h-0.5 bg-gold transition-all duration-300 origin-center"></span>
+      <span class="hamburger-line w-4 h-0.5 bg-gold self-end transition-all duration-300 origin-center"></span>
+      <span class="hamburger-line w-6 h-0.5 bg-gold transition-all duration-300 origin-center"></span>
+    </button>
   </header>
+
+  <!-- Mobile Fullscreen Navigation Overlay -->
+  <div id="mobile-menu" class="mobile-nav-menu fixed inset-0 z-30 bg-bg/98 backdrop-blur-xl flex flex-col justify-between p-8 pt-24 md:hidden">
+    <nav class="flex flex-col gap-6 font-display tracking-widest text-3xl">
+      <a href="#about" class="mobile-nav-link text-text hover:text-gold transition-colors">About</a>
+      <a href="#looks" class="mobile-nav-link text-text hover:text-gold transition-colors">Portfolios</a>
+      <a href="#reel" class="mobile-nav-link text-text hover:text-gold transition-colors">Reel</a>
+      <a href="#contact" class="mobile-nav-link text-text hover:text-gold transition-colors">Contact</a>
+    </nav>
+    
+    <div class="border-t border-white/10 pt-6 space-y-4">
+      <p class="font-display text-gold tracking-widest text-sm uppercase">Direct Inquiries</p>
+      <div class="flex flex-col gap-2 font-body text-base text-text/80">
+        <a href="tel:+918179067160" class="hover:text-gold transition-colors">+91 81790 67160</a>
+        <a href="mailto:Randhisravankumar@gmail.com" class="hover:text-gold transition-colors break-all">Randhisravankumar@gmail.com</a>
+      </div>
+      <a href="#contact" class="mobile-nav-link inline-block w-full py-3 text-center border border-gold text-gold font-display tracking-widest text-lg hover:bg-gold hover:text-bg transition-colors mt-2">LET'S CREATE MAGIC</a>
+    </div>
+  </div>
 
   <main>
     <!-- Hero Section -->
-    <section id="hero" class="relative w-full h-screen flex items-center justify-center overflow-hidden">
+    <section id="hero" class="relative w-full min-h-screen flex items-center justify-center overflow-hidden pt-20 pb-16">
       <div class="absolute inset-0 z-0">
-        <img src="./assets/IMG/1.jpeg" alt="Sravan Kumar" class="w-full h-full object-cover opacity-60 hero-img scale-110" />
-        <div class="absolute inset-0 bg-gradient-to-t from-bg via-transparent to-transparent"></div>
-        <div class="absolute inset-0 bg-gradient-to-r from-bg/40 via-transparent to-bg/40"></div>
+        <img src="./assets/IMG/1.jpeg" alt="Sravan Kumar" class="w-full h-full object-cover opacity-60 hero-img scale-105 md:scale-110" />
+        <div class="absolute inset-0 bg-gradient-to-t from-bg via-bg/40 to-transparent"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-bg/60 via-transparent to-bg/60"></div>
       </div>
-      <div class="relative z-10 flex flex-col items-center text-center mt-20">
-        <h2 class="hero-subtitle font-display text-gold text-xl md:text-3xl tracking-[0.3em] mb-4 overflow-hidden"><span class="inline-block translate-y-full">MR. INDIA FRANCE 2025</span></h2>
-        <h1 class="hero-title font-display text-7xl md:text-[12vw] leading-none tracking-wider uppercase drop-shadow-2xl overflow-hidden"><span class="inline-block translate-y-full">Sravan Kumar</span></h1>
-        <p class="hero-desc text-xl md:text-3xl italic mt-6 md:mt-2 text-text/80 max-w-xl px-4 overflow-hidden"><span class="inline-block translate-y-full">Actor • Model • Global Presence</span></p>
+      
+      <div class="relative z-10 flex flex-col items-center text-center px-4 max-w-4xl mx-auto">
+        <h2 class="hero-subtitle font-display text-gold text-base sm:text-xl md:text-3xl tracking-[0.25em] mb-3 overflow-hidden">
+          <span class="inline-block translate-y-full">MR. INDIA FRANCE 2025</span>
+        </h2>
+        <h1 class="hero-title font-display text-6xl sm:text-7xl md:text-[11vw] leading-[0.95] tracking-wider uppercase drop-shadow-2xl overflow-hidden">
+          <span class="inline-block translate-y-full">Sravan Kumar</span>
+        </h1>
+        <p class="hero-desc text-lg sm:text-xl md:text-3xl italic mt-4 md:mt-2 text-text/85 px-4 overflow-hidden">
+          <span class="inline-block translate-y-full">Actor • Model • Global Presence</span>
+        </p>
       </div>
       
       <!-- Scroll Indicator -->
-      <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-0 hero-scroll z-20">
-        <span class="font-display tracking-[0.2em] text-xs text-muted uppercase">Scroll to explore</span>
-        <div class="w-px h-12 bg-white/20 relative overflow-hidden">
+      <div class="absolute bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-0 hero-scroll z-20">
+        <span class="font-display tracking-[0.2em] text-[10px] md:text-xs text-muted uppercase">Scroll to explore</span>
+        <div class="w-px h-8 md:h-12 bg-white/20 relative overflow-hidden">
           <div class="w-full h-full bg-gold absolute top-0 left-0 animate-scroll-down"></div>
         </div>
       </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="relative py-24 md:py-40 px-6 md:px-20 max-w-[1600px] mx-auto">
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20 items-center">
-        <div class="md:col-span-5 relative group">
+    <section id="about" class="relative py-20 md:py-36 px-6 md:px-20 max-w-[1600px] mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-20 items-center">
+        <div class="md:col-span-5 relative group max-w-md mx-auto md:max-w-none w-full">
           <div class="aspect-[3/4] overflow-hidden rounded-sm relative z-10">
             <img src="./assets/IMG/2.jpeg" alt="Sravan Kumar Portrait" class="w-full h-full object-cover about-img" />
           </div>
-          <div class="absolute -bottom-6 -right-6 w-full h-full border border-gold/30 z-0"></div>
+          <div class="absolute -bottom-3 -right-3 md:-bottom-6 md:-right-6 w-full h-full border border-gold/30 z-0"></div>
         </div>
-        <div class="md:col-span-7 flex flex-col justify-center">
-          <p class="font-display text-gold tracking-widest text-lg mb-4 reveal-text">Biography</p>
-          <h2 class="font-display text-5xl md:text-7xl leading-[0.9] mb-8 reveal-text">From Vizianagaram<br/>to Paris.</h2>
-          <div class="text-xl md:text-2xl leading-relaxed text-text/80 space-y-6">
+        
+        <div class="md:col-span-7 flex flex-col justify-center mt-6 md:mt-0">
+          <p class="font-display text-gold tracking-widest text-lg mb-3 reveal-text">Biography</p>
+          <h2 class="font-display text-4xl sm:text-5xl md:text-7xl leading-[0.95] mb-6 reveal-text">From Vizianagaram<br/>to Paris.</h2>
+          
+          <div class="text-lg md:text-2xl leading-relaxed text-text/80 space-y-4 md:space-y-6">
             <p class="reveal-text">Sravan Kumar is an Indian actor and model with a unique international trajectory. Beginning his career in 2018, he moved to Paris in 2021, gaining exposure to European creative standards.</p>
             <p class="reveal-text">With a profound understanding of character depth and a striking screen presence, he bridges the gap between raw Indian cinema and polished international storytelling.</p>
           </div>
           
-          <div class="grid grid-cols-2 gap-8 mt-12 border-t border-white/10 pt-12 reveal-text">
+          <div class="grid grid-cols-2 gap-6 md:gap-8 mt-8 md:mt-12 border-t border-white/10 pt-8 md:pt-12 reveal-text">
             <div>
-              <p class="font-display text-gold tracking-widest uppercase mb-1">Languages</p>
-              <p class="text-lg">Telugu, Hindi, English, French</p>
+              <p class="font-display text-gold tracking-widest text-sm md:text-base uppercase mb-1">Languages</p>
+              <p class="text-base md:text-lg">Telugu, Hindi, English, French</p>
             </div>
             <div>
-              <p class="font-display text-gold tracking-widest uppercase mb-1">Current Project</p>
-              <p class="text-lg">Lead in "Chakkora"</p>
+              <p class="font-display text-gold tracking-widest text-sm md:text-base uppercase mb-1">Current Project</p>
+              <p class="text-base md:text-lg">Lead in "Chakkora"</p>
             </div>
             <div>
-              <p class="font-display text-gold tracking-widest uppercase mb-1">Physical Profile</p>
-              <p class="text-lg">186 cm (6'1") | Athletic</p>
+              <p class="font-display text-gold tracking-widest text-sm md:text-base uppercase mb-1">Physical Profile</p>
+              <p class="text-base md:text-lg">186 cm (6'1") | Athletic</p>
             </div>
             <div>
-              <p class="font-display text-gold tracking-widest uppercase mb-1">Base</p>
-              <p class="text-lg">India / International</p>
+              <p class="font-display text-gold tracking-widest text-sm md:text-base uppercase mb-1">Base</p>
+              <p class="text-base md:text-lg">India / International</p>
             </div>
           </div>
         </div>
@@ -126,35 +163,35 @@
     </section>
 
     <!-- Raw & Rugged -->
-    <section class="relative py-24 md:py-40 px-6 md:px-20 max-w-[1600px] mx-auto bg-white/5 my-20">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
-        <div class="order-2 md:order-1 flex flex-col justify-center">
-          <h2 class="font-display text-5xl md:text-7xl leading-[0.9] mb-8 text-gold reveal-text">The Raw &<br/>Rugged</h2>
-          <p class="text-xl md:text-3xl italic leading-relaxed text-text/90 reveal-text">
+    <section class="relative py-16 md:py-36 px-6 md:px-20 max-w-[1600px] mx-auto bg-white/5 my-12 md:my-20">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 items-center">
+        <div class="order-2 md:order-1 flex flex-col justify-center text-center md:text-left">
+          <h2 class="font-display text-4xl sm:text-5xl md:text-7xl leading-[0.95] mb-6 text-gold reveal-text">The Raw &<br class="hidden md:inline"/>Rugged</h2>
+          <p class="text-lg sm:text-xl md:text-3xl italic leading-relaxed text-text/90 reveal-text">
             "Authentic, relatable, and grounded. Showcasing the everyman or the fierce regional hero persona."
           </p>
         </div>
         <div class="order-1 md:order-2">
-          <div class="aspect-square overflow-hidden rounded-full max-w-[500px] mx-auto">
-            <img src="./assets/IMG/3.jpeg" alt="Back profile portrait" class="w-full h-full object-cover scale-110 parallax-img" />
+          <div class="aspect-square overflow-hidden rounded-full max-w-[260px] sm:max-w-[340px] md:max-w-[480px] mx-auto shadow-2xl border border-gold/20">
+            <img src="./assets/IMG/3.jpeg" alt="Back profile portrait" class="w-full h-full object-cover scale-105 md:scale-110 parallax-img" />
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Looks Showcase (Horizontal Scroll on Desktop, Vertical on Mobile) -->
-    <section id="looks" class="relative py-20 overflow-hidden hidden md:block">
+    <!-- Desktop Portfolios Showcase (Horizontal Pin on Desktop) -->
+    <section id="looks-desktop" class="relative py-24 overflow-hidden hidden md:block">
       <div class="px-6 md:px-20 mb-10">
         <h2 class="font-display text-5xl md:text-8xl tracking-wide reveal-text">The Portfolios</h2>
         <p class="text-xl text-gold mt-2 font-display tracking-widest reveal-text">11 Distinct Personas</p>
       </div>
       
       <div class="horizontal-scroll-container flex gap-10 px-20 pb-20 w-[max-content]">
-        <!-- Cards -->
+        <!-- Look 01 -->
         <div class="look-card w-[450px] shrink-0 group">
           <div class="aspect-[2/3] overflow-hidden rounded-sm relative">
-            <img src="./assets/IMG/5.jpeg" alt="Look" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
-            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+            <img src="./assets/IMG/5.jpeg" alt="Look 01" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
+            <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
               <h3 class="font-display text-4xl text-white">The Cinematic Edge</h3>
               <p class="text-white/80 mt-2">High-intensity, moody, and character-driven.</p>
             </div>
@@ -165,10 +202,11 @@
           </div>
         </div>
 
+        <!-- Look 02 -->
         <div class="look-card w-[450px] shrink-0 group">
           <div class="aspect-[2/3] overflow-hidden rounded-sm relative">
-            <img src="./assets/IMG/4.jpeg" alt="Look" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
-            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+            <img src="./assets/IMG/4.jpeg" alt="Look 02" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
+            <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
               <h3 class="font-display text-4xl text-white">Rugged Expression</h3>
               <p class="text-white/80 mt-2">Relatable, grounded regional hero.</p>
             </div>
@@ -179,10 +217,11 @@
           </div>
         </div>
 
+        <!-- Look 03 -->
         <div class="look-card w-[450px] shrink-0 group">
           <div class="aspect-[2/3] overflow-hidden rounded-sm relative">
-            <img src="./assets/IMG/6.jpeg" alt="Look" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
-            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+            <img src="./assets/IMG/6.jpeg" alt="Look 03" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
+            <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
               <h3 class="font-display text-4xl text-white">The Classical Warrior</h3>
               <p class="text-white/80 mt-2">Strong screen presence for Period Dramas.</p>
             </div>
@@ -193,10 +232,11 @@
           </div>
         </div>
 
+        <!-- Look 04 -->
         <div class="look-card w-[450px] shrink-0 group">
           <div class="aspect-[2/3] overflow-hidden rounded-sm relative">
-            <img src="./assets/IMG/7.jpeg" alt="Look" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
-            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+            <img src="./assets/IMG/7.jpeg" alt="Look 04" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
+            <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
               <h3 class="font-display text-4xl text-white">The Sophisticated Lead</h3>
               <p class="text-white/80 mt-2">Polished, romantic, and charming.</p>
             </div>
@@ -207,10 +247,11 @@
           </div>
         </div>
 
+        <!-- Look 05 -->
         <div class="look-card w-[450px] shrink-0 group">
           <div class="aspect-[2/3] overflow-hidden rounded-sm relative">
-            <img src="./assets/IMG/8.jpeg" alt="Look" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
-            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+            <img src="./assets/IMG/8.jpeg" alt="Look 05" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
+            <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
               <h3 class="font-display text-4xl text-white">The Global Explorer</h3>
               <p class="text-white/80 mt-2">Versatile, travel-ready, visually dynamic.</p>
             </div>
@@ -221,10 +262,11 @@
           </div>
         </div>
 
+        <!-- Look 06 -->
         <div class="look-card w-[450px] shrink-0 group">
           <div class="aspect-[2/3] overflow-hidden rounded-sm relative">
-            <img src="./assets/IMG/9.jpeg" alt="Look" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
-            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+            <img src="./assets/IMG/9.jpeg" alt="Look 06" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
+            <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
               <h3 class="font-display text-4xl text-white">The Urban Natural</h3>
               <p class="text-white/80 mt-2">Natural expressions with confident body language.</p>
             </div>
@@ -235,10 +277,11 @@
           </div>
         </div>
 
+        <!-- Look 07 -->
         <div class="look-card w-[450px] shrink-0 group">
           <div class="aspect-[2/3] overflow-hidden rounded-sm relative">
-            <img src="./assets/IMG/10.jpeg" alt="Look" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
-            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+            <img src="./assets/IMG/10.jpeg" alt="Look 07" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
+            <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
               <h3 class="font-display text-4xl text-white">The Intense Profile</h3>
               <p class="text-white/80 mt-2">Strong profile angle and deep emotion.</p>
             </div>
@@ -249,10 +292,11 @@
           </div>
         </div>
 
+        <!-- Look 08 -->
         <div class="look-card w-[450px] shrink-0 group">
           <div class="aspect-[2/3] overflow-hidden rounded-sm relative">
-            <img src="./assets/IMG/11.jpeg" alt="Look" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
-            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+            <img src="./assets/IMG/11.jpeg" alt="Look 08" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
+            <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
               <h3 class="font-display text-4xl text-white">The Fashion Hero</h3>
               <p class="text-white/80 mt-2">Stylized presence with clean attitude.</p>
             </div>
@@ -263,10 +307,11 @@
           </div>
         </div>
 
+        <!-- Look 09 -->
         <div class="look-card w-[450px] shrink-0 group">
           <div class="aspect-[2/3] overflow-hidden rounded-sm relative">
-            <img src="./assets/IMG/12.jpeg" alt="Look" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
-            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+            <img src="./assets/IMG/12.jpeg" alt="Look 09" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
+            <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
               <h3 class="font-display text-4xl text-white">The Close-Up</h3>
               <p class="text-white/80 mt-2">Expressive face details and controlled emotion.</p>
             </div>
@@ -277,10 +322,11 @@
           </div>
         </div>
 
+        <!-- Look 10 -->
         <div class="look-card w-[450px] shrink-0 group">
           <div class="aspect-[2/3] overflow-hidden rounded-sm relative">
-            <img src="./assets/IMG/13.jpeg" alt="Look" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
-            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+            <img src="./assets/IMG/13.jpeg" alt="Look 10" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
+            <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
               <h3 class="font-display text-4xl text-white">The Character Mode</h3>
               <p class="text-white/80 mt-2">Raw and character-driven energy.</p>
             </div>
@@ -291,10 +337,11 @@
           </div>
         </div>
 
+        <!-- Look 11 -->
         <div class="look-card w-[450px] shrink-0 group">
           <div class="aspect-[2/3] overflow-hidden rounded-sm relative">
-            <img src="./assets/IMG/14.jpeg" alt="Look" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
-            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+            <img src="./assets/IMG/14.jpeg" alt="Look 11" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
+            <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
               <h3 class="font-display text-4xl text-white">The Signature Portrait</h3>
               <p class="text-white/80 mt-2">A polished signature frame.</p>
             </div>
@@ -304,118 +351,232 @@
             <p class="text-gold text-sm italic">Portfolio / Cover</p>
           </div>
         </div>
-
       </div>
     </section>
 
-    <!-- Mobile Looks Fallback (Vertical) -->
-    <section class="md:hidden py-20 px-6">
+    <!-- Mobile Portfolios Showcase (Responsive Vertical Grid on Mobile) -->
+    <section id="looks" class="md:hidden py-16 px-6">
       <div class="mb-10 text-center">
-        <h2 class="font-display text-5xl tracking-wide reveal-text">The Portfolios</h2>
-        <p class="text-lg text-gold mt-2 font-display tracking-widest reveal-text">11 Distinct Personas</p>
+        <h2 class="font-display text-4xl sm:text-5xl tracking-wide reveal-text">The Portfolios</h2>
+        <p class="text-base text-gold mt-2 font-display tracking-widest reveal-text">11 Distinct Personas</p>
       </div>
-      <div class="flex flex-col gap-16">
-        <!-- Will populate a few key looks for mobile to keep it tight, or all 11 with lazy load -->
-        
-        <div class="mobile-look">
-          <img src="./assets/IMG/5.jpeg" alt="Look" class="w-full aspect-[2/3] object-cover rounded-sm mb-4" />
-          <h3 class="font-display text-3xl">The Cinematic Edge</h3>
-          <p class="text-muted italic mb-2">Look 01 • Neo-noir / Thriller</p>
-          <p class="text-lg">High-intensity, moody, and character-driven.</p>
+
+      <div class="flex flex-col gap-12">
+        <!-- Look 01 -->
+        <div class="mobile-look bg-white/[0.02] border border-white/5 rounded-sm p-4">
+          <div class="aspect-[2/3] overflow-hidden rounded-sm mb-4">
+            <img src="./assets/IMG/5.jpeg" alt="Look 01" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="flex justify-between items-center mb-1">
+            <h3 class="font-display text-2xl sm:text-3xl">The Cinematic Edge</h3>
+            <span class="font-display text-gold text-sm tracking-wider">Look 01</span>
+          </div>
+          <p class="text-gold/80 text-sm italic mb-2">Neo-noir / Thriller</p>
+          <p class="text-base text-text/80">High-intensity, moody, and character-driven.</p>
         </div>
 
-        <div class="mobile-look">
-          <img src="./assets/IMG/6.jpeg" alt="Look" class="w-full aspect-[2/3] object-cover rounded-sm mb-4" />
-          <h3 class="font-display text-3xl">The Classical Warrior</h3>
-          <p class="text-muted italic mb-2">Look 03 • Mythology / Action</p>
-          <p class="text-lg">Strong screen presence for Period Dramas.</p>
+        <!-- Look 02 -->
+        <div class="mobile-look bg-white/[0.02] border border-white/5 rounded-sm p-4">
+          <div class="aspect-[2/3] overflow-hidden rounded-sm mb-4">
+            <img src="./assets/IMG/4.jpeg" alt="Look 02" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="flex justify-between items-center mb-1">
+            <h3 class="font-display text-2xl sm:text-3xl">Rugged Expression</h3>
+            <span class="font-display text-gold text-sm tracking-wider">Look 02</span>
+          </div>
+          <p class="text-gold/80 text-sm italic mb-2">Regional / Drama</p>
+          <p class="text-base text-text/80">Relatable, grounded regional hero.</p>
         </div>
 
-        <div class="mobile-look">
-          <img src="./assets/IMG/7.jpeg" alt="Look" class="w-full aspect-[2/3] object-cover rounded-sm mb-4" />
-          <h3 class="font-display text-3xl">The Sophisticated Lead</h3>
-          <p class="text-muted italic mb-2">Look 04 • Urban / Rom-com</p>
-          <p class="text-lg">Polished, romantic, and charming.</p>
+        <!-- Look 03 -->
+        <div class="mobile-look bg-white/[0.02] border border-white/5 rounded-sm p-4">
+          <div class="aspect-[2/3] overflow-hidden rounded-sm mb-4">
+            <img src="./assets/IMG/6.jpeg" alt="Look 03" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="flex justify-between items-center mb-1">
+            <h3 class="font-display text-2xl sm:text-3xl">The Classical Warrior</h3>
+            <span class="font-display text-gold text-sm tracking-wider">Look 03</span>
+          </div>
+          <p class="text-gold/80 text-sm italic mb-2">Mythology / Action</p>
+          <p class="text-base text-text/80">Strong screen presence for Period Dramas.</p>
         </div>
 
-        <div class="mobile-look">
-          <img src="./assets/IMG/11.jpeg" alt="Look" class="w-full aspect-[2/3] object-cover rounded-sm mb-4" />
-          <h3 class="font-display text-3xl">The Fashion Hero</h3>
-          <p class="text-muted italic mb-2">Look 08 • Luxury / Fashion</p>
-          <p class="text-lg">Stylized presence with clean attitude.</p>
+        <!-- Look 04 -->
+        <div class="mobile-look bg-white/[0.02] border border-white/5 rounded-sm p-4">
+          <div class="aspect-[2/3] overflow-hidden rounded-sm mb-4">
+            <img src="./assets/IMG/7.jpeg" alt="Look 04" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="flex justify-between items-center mb-1">
+            <h3 class="font-display text-2xl sm:text-3xl">The Sophisticated Lead</h3>
+            <span class="font-display text-gold text-sm tracking-wider">Look 04</span>
+          </div>
+          <p class="text-gold/80 text-sm italic mb-2">Urban / Rom-com</p>
+          <p class="text-base text-text/80">Polished, romantic, and charming.</p>
+        </div>
+
+        <!-- Look 05 -->
+        <div class="mobile-look bg-white/[0.02] border border-white/5 rounded-sm p-4">
+          <div class="aspect-[2/3] overflow-hidden rounded-sm mb-4">
+            <img src="./assets/IMG/8.jpeg" alt="Look 05" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="flex justify-between items-center mb-1">
+            <h3 class="font-display text-2xl sm:text-3xl">The Global Explorer</h3>
+            <span class="font-display text-gold text-sm tracking-wider">Look 05</span>
+          </div>
+          <p class="text-gold/80 text-sm italic mb-2">Lifestyle / Fitness</p>
+          <p class="text-base text-text/80">Versatile, travel-ready, visually dynamic.</p>
+        </div>
+
+        <!-- Look 06 -->
+        <div class="mobile-look bg-white/[0.02] border border-white/5 rounded-sm p-4">
+          <div class="aspect-[2/3] overflow-hidden rounded-sm mb-4">
+            <img src="./assets/IMG/9.jpeg" alt="Look 06" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="flex justify-between items-center mb-1">
+            <h3 class="font-display text-2xl sm:text-3xl">The Urban Natural</h3>
+            <span class="font-display text-gold text-sm tracking-wider">Look 06</span>
+          </div>
+          <p class="text-gold/80 text-sm italic mb-2">Modern Drama</p>
+          <p class="text-base text-text/80">Natural expressions with confident body language.</p>
+        </div>
+
+        <!-- Look 07 -->
+        <div class="mobile-look bg-white/[0.02] border border-white/5 rounded-sm p-4">
+          <div class="aspect-[2/3] overflow-hidden rounded-sm mb-4">
+            <img src="./assets/IMG/10.jpeg" alt="Look 07" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="flex justify-between items-center mb-1">
+            <h3 class="font-display text-2xl sm:text-3xl">The Intense Profile</h3>
+            <span class="font-display text-gold text-sm tracking-wider">Look 07</span>
+          </div>
+          <p class="text-gold/80 text-sm italic mb-2">Psychological</p>
+          <p class="text-base text-text/80">Strong profile angle and deep emotion.</p>
+        </div>
+
+        <!-- Look 08 -->
+        <div class="mobile-look bg-white/[0.02] border border-white/5 rounded-sm p-4">
+          <div class="aspect-[2/3] overflow-hidden rounded-sm mb-4">
+            <img src="./assets/IMG/11.jpeg" alt="Look 08" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="flex justify-between items-center mb-1">
+            <h3 class="font-display text-2xl sm:text-3xl">The Fashion Hero</h3>
+            <span class="font-display text-gold text-sm tracking-wider">Look 08</span>
+          </div>
+          <p class="text-gold/80 text-sm italic mb-2">Luxury / Fashion</p>
+          <p class="text-base text-text/80">Stylized presence with clean attitude.</p>
+        </div>
+
+        <!-- Look 09 -->
+        <div class="mobile-look bg-white/[0.02] border border-white/5 rounded-sm p-4">
+          <div class="aspect-[2/3] overflow-hidden rounded-sm mb-4">
+            <img src="./assets/IMG/12.jpeg" alt="Look 09" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="flex justify-between items-center mb-1">
+            <h3 class="font-display text-2xl sm:text-3xl">The Close-Up</h3>
+            <span class="font-display text-gold text-sm tracking-wider">Look 09</span>
+          </div>
+          <p class="text-gold/80 text-sm italic mb-2">Romance / Emotion</p>
+          <p class="text-base text-text/80">Expressive face details and controlled emotion.</p>
+        </div>
+
+        <!-- Look 10 -->
+        <div class="mobile-look bg-white/[0.02] border border-white/5 rounded-sm p-4">
+          <div class="aspect-[2/3] overflow-hidden rounded-sm mb-4">
+            <img src="./assets/IMG/13.jpeg" alt="Look 10" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="flex justify-between items-center mb-1">
+            <h3 class="font-display text-2xl sm:text-3xl">The Character Mode</h3>
+            <span class="font-display text-gold text-sm tracking-wider">Look 10</span>
+          </div>
+          <p class="text-gold/80 text-sm italic mb-2">Gritty Realism</p>
+          <p class="text-base text-text/80">Raw and character-driven energy.</p>
+        </div>
+
+        <!-- Look 11 -->
+        <div class="mobile-look bg-white/[0.02] border border-white/5 rounded-sm p-4">
+          <div class="aspect-[2/3] overflow-hidden rounded-sm mb-4">
+            <img src="./assets/IMG/14.jpeg" alt="Look 11" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="flex justify-between items-center mb-1">
+            <h3 class="font-display text-2xl sm:text-3xl">The Signature Portrait</h3>
+            <span class="font-display text-gold text-sm tracking-wider">Look 11</span>
+          </div>
+          <p class="text-gold/80 text-sm italic mb-2">Portfolio / Cover</p>
+          <p class="text-base text-text/80">A polished signature frame.</p>
         </div>
       </div>
     </section>
 
     <!-- Performance Reel Section -->
-    <section id="reel" class="relative py-24 md:py-40 bg-black">
+    <section id="reel" class="relative py-20 md:py-36 bg-black">
       <div class="max-w-[1200px] mx-auto px-6 md:px-20 text-center">
-        <h2 class="font-display text-5xl md:text-7xl mb-12 reveal-text">Performance Reel</h2>
-        <div class="relative w-full rounded-sm overflow-hidden border border-white/10 group cursor-pointer" id="video-container">
-          <!-- Video -->
+        <h2 class="font-display text-4xl sm:text-5xl md:text-7xl mb-8 md:mb-12 reveal-text">Performance Reel</h2>
+        
+        <div class="relative w-full rounded-sm overflow-hidden border border-white/10 group cursor-pointer shadow-2xl" id="video-container">
           <video src="./assets/IMG/VDO.mp4" class="w-full h-auto block" muted loop playsinline id="showreel-video"></video>
-          <!-- Overlay -->
+          
           <div class="absolute inset-0 bg-black/30 flex items-center justify-center transition-all duration-500 group-hover:bg-black/10" id="video-overlay">
-            <button class="w-20 h-20 rounded-full border border-gold flex items-center justify-center text-gold backdrop-blur-sm hover:scale-110 transition-transform duration-300" id="play-btn">
+            <button class="w-16 h-16 md:w-20 md:h-20 rounded-full border border-gold flex items-center justify-center text-gold backdrop-blur-sm hover:scale-110 transition-transform duration-300 shadow-lg" id="play-btn" aria-label="Play video">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
             </button>
           </div>
         </div>
-        <p class="mt-8 text-xl text-text/70 italic reveal-text">Showcasing dialogue delivery, emotional timing, and on-screen character execution.</p>
+        
+        <p class="mt-6 md:mt-8 text-base md:text-xl text-text/70 italic reveal-text">Showcasing dialogue delivery, emotional timing, and on-screen character execution.</p>
       </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="relative py-24 md:py-40 px-6 md:px-20 max-w-[1400px] mx-auto">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-        <div>
-          <h2 class="font-display text-6xl md:text-8xl leading-none mb-6 reveal-text">Let's Create<br/><span class="text-gold">Magic.</span></h2>
-          <p class="text-2xl text-text/80 mb-12 reveal-text">Available for feature films, brand campaigns, and commercial auditions globally.</p>
+    <section id="contact" class="relative py-20 md:py-36 px-6 md:px-20 max-w-[1400px] mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <div class="lg:col-span-7">
+          <h2 class="font-display text-5xl sm:text-6xl md:text-8xl leading-none mb-6 reveal-text">Let's Create<br/><span class="text-gold">Magic.</span></h2>
+          <p class="text-lg md:text-2xl text-text/80 mb-10 md:mb-12 reveal-text">Available for feature films, brand campaigns, and commercial auditions globally.</p>
           
-          <ul class="space-y-8">
-            <li class="flex items-center gap-6 group">
-              <div class="w-16 h-16 rounded-full border border-white/20 flex items-center justify-center group-hover:border-gold group-hover:text-gold transition-colors duration-300">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          <ul class="space-y-6 md:space-y-8">
+            <li class="flex items-center gap-4 md:gap-6 group">
+              <div class="w-12 h-12 md:w-16 md:h-16 shrink-0 rounded-full border border-white/20 flex items-center justify-center group-hover:border-gold group-hover:text-gold transition-colors duration-300">
+                <svg width="20" height="20" class="md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
               </div>
               <div>
-                <p class="font-display tracking-widest text-gold text-lg">Phone</p>
-                <a href="tel:+918179067160" class="text-2xl hover:text-white transition-colors duration-300">+91 81790 67160</a>
+                <p class="font-display tracking-widest text-gold text-sm md:text-lg">Phone</p>
+                <a href="tel:+918179067160" class="text-xl md:text-2xl hover:text-gold transition-colors duration-300">+91 81790 67160</a>
               </div>
             </li>
             
-            <li class="flex items-center gap-6 group">
-              <div class="w-16 h-16 rounded-full border border-white/20 flex items-center justify-center group-hover:border-gold group-hover:text-gold transition-colors duration-300">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            <li class="flex items-center gap-4 md:gap-6 group">
+              <div class="w-12 h-12 md:w-16 md:h-16 shrink-0 rounded-full border border-white/20 flex items-center justify-center group-hover:border-gold group-hover:text-gold transition-colors duration-300">
+                <svg width="20" height="20" class="md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
               </div>
-              <div>
-                <p class="font-display tracking-widest text-gold text-lg">Email</p>
-                <a href="mailto:Randhisravankumar@gmail.com" class="text-2xl hover:text-white transition-colors duration-300 break-all">Randhisravankumar@gmail.com</a>
+              <div class="min-w-0">
+                <p class="font-display tracking-widest text-gold text-sm md:text-lg">Email</p>
+                <a href="mailto:Randhisravankumar@gmail.com" class="text-xl md:text-2xl hover:text-gold transition-colors duration-300 break-all">Randhisravankumar@gmail.com</a>
               </div>
             </li>
 
-            <li class="flex items-center gap-6 group">
-              <div class="w-16 h-16 rounded-full border border-white/20 flex items-center justify-center group-hover:border-gold group-hover:text-gold transition-colors duration-300">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            <li class="flex items-center gap-4 md:gap-6 group">
+              <div class="w-12 h-12 md:w-16 md:h-16 shrink-0 rounded-full border border-white/20 flex items-center justify-center group-hover:border-gold group-hover:text-gold transition-colors duration-300">
+                <svg width="20" height="20" class="md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
               </div>
               <div>
-                <p class="font-display tracking-widest text-gold text-lg">Instagram</p>
-                <a href="https://www.instagram.com/ran_the_sravankumar?igsh=bno2anFheDZ2bG9z" target="_blank" rel="noopener noreferrer" class="text-2xl hover:text-white transition-colors duration-300">@ran_the_sravankumar</a>
+                <p class="font-display tracking-widest text-gold text-sm md:text-lg">Instagram</p>
+                <a href="https://www.instagram.com/ran_the_sravankumar?igsh=bno2anFheDZ2bG9z" target="_blank" rel="noopener noreferrer" class="text-xl md:text-2xl hover:text-gold transition-colors duration-300">@ran_the_sravankumar</a>
               </div>
             </li>
           </ul>
         </div>
         
-        <div class="relative">
-          <div class="aspect-[3/4] overflow-hidden rounded-sm relative z-10 w-4/5 ml-auto">
+        <div class="lg:col-span-5 relative mt-6 lg:mt-0 max-w-md mx-auto lg:max-w-none w-full">
+          <div class="aspect-[3/4] overflow-hidden rounded-sm relative z-10 w-full">
             <img src="./assets/IMG/14.jpeg" alt="Contact Portrait" class="w-full h-full object-cover parallax-img" />
           </div>
-          <div class="absolute top-10 left-0 w-4/5 h-full border border-gold/30 z-0"></div>
+          <div class="absolute -bottom-3 -right-3 md:-bottom-6 md:-right-6 w-full h-full border border-gold/30 z-0"></div>
         </div>
       </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-10 border-t border-white/10 text-center text-muted text-sm font-display tracking-widest">
+    <footer class="py-8 md:py-12 border-t border-white/10 text-center text-muted text-xs md:text-sm font-display tracking-widest px-4">
       <p>&copy; 2026 SRAVAN KUMAR. ALL RIGHTS RESERVED.</p>
     </footer>
   </main>
