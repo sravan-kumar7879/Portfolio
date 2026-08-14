@@ -80,6 +80,7 @@ function toggleMobileMenu(open) {
   isMenuOpen = (typeof open === 'boolean') ? open : !isMenuOpen;
   
   if (isMenuOpen) {
+    mobileMenu.classList.remove('hidden');
     mobileMenu.classList.add('active');
     document.body.style.overflow = 'hidden';
     lenis.stop();
@@ -92,6 +93,7 @@ function toggleMobileMenu(open) {
     }
   } else {
     mobileMenu.classList.remove('active');
+    mobileMenu.classList.add('hidden');
     document.body.style.overflow = '';
     lenis.start();
     
